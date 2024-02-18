@@ -1,0 +1,15 @@
+{
+  "" : {
+    "const-values" : "/Users/samalburanbaeva/Desktop/Ozin3/build/Pods.build/Release-iphoneos/SwiftyJSON.build/Objects-normal/arm64/SwiftyJSON-master.swiftconstvalues",
+    "dependencies" : "/Users/samalburanbaeva/Desktop/Ozin3/build/Pods.build/Release-iphoneos/SwiftyJSON.build/Objects-normal/arm64/SwiftyJSON-master.d",
+    "diagnostics" : "/Users/samalburanbaeva/Desktop/Ozin3/build/Pods.build/Release-iphoneos/SwiftyJSON.build/Objects-normal/arm64/SwiftyJSON-master.dia",
+    "emit-module-dependencies" : "/Users/samalburanbaeva/Desktop/Ozin3/build/Pods.build/Release-iphoneos/SwiftyJSON.build/Objects-normal/arm64/SwiftyJSON-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/samalburanbaeva/Desktop/Ozin3/build/Pods.build/Release-iphoneos/SwiftyJSON.build/Objects-normal/arm64/SwiftyJSON-master-emit-module.dia",
+    "swift-dependencies" : "/Users/samalburanbaeva/Desktop/Ozin3/build/Pods.build/Release-iphoneos/SwiftyJSON.build/Objects-normal/arm64/SwiftyJSON-master.swiftdeps"
+  },
+  "/Users/samalburanbaeva/Desktop/Ozin3/Pods/SwiftyJSON/Source/SwiftyJSON/SwiftyJSON.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/SwiftyJSON.build/Objects-normal/arm64/SwiftyJSON.o",
+    "llvm-bc" : "/Users/samalburanbaeva/Desktop/Ozin3/build/Pods.build/Release-iphoneos/SwiftyJSON.build/Objects-normal/arm64/SwiftyJSON.bc",
+    "object" : "/Users/samalburanbaeva/Desktop/Ozin3/build/Pods.build/Release-iphoneos/SwiftyJSON.build/Objects-normal/arm64/SwiftyJSON.o"
+  }
+}

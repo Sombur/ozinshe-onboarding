@@ -1,0 +1,35 @@
+{
+  "" : {
+    "const-values" : "/Users/samalburanbaeva/Desktop/Ozin3/build/Pods.build/Release-iphoneos/Localize-Swift.build/Objects-normal/arm64/Localize-Swift-master.swiftconstvalues",
+    "dependencies" : "/Users/samalburanbaeva/Desktop/Ozin3/build/Pods.build/Release-iphoneos/Localize-Swift.build/Objects-normal/arm64/Localize-Swift-master.d",
+    "diagnostics" : "/Users/samalburanbaeva/Desktop/Ozin3/build/Pods.build/Release-iphoneos/Localize-Swift.build/Objects-normal/arm64/Localize-Swift-master.dia",
+    "emit-module-dependencies" : "/Users/samalburanbaeva/Desktop/Ozin3/build/Pods.build/Release-iphoneos/Localize-Swift.build/Objects-normal/arm64/Localize-Swift-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/samalburanbaeva/Desktop/Ozin3/build/Pods.build/Release-iphoneos/Localize-Swift.build/Objects-normal/arm64/Localize-Swift-master-emit-module.dia",
+    "swift-dependencies" : "/Users/samalburanbaeva/Desktop/Ozin3/build/Pods.build/Release-iphoneos/Localize-Swift.build/Objects-normal/arm64/Localize-Swift-master.swiftdeps"
+  },
+  "/Users/samalburanbaeva/Desktop/Ozin3/Pods/Localize-Swift/Sources/Localize.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/Localize-Swift.build/Objects-normal/arm64/Localize.o",
+    "llvm-bc" : "/Users/samalburanbaeva/Desktop/Ozin3/build/Pods.build/Release-iphoneos/Localize-Swift.build/Objects-normal/arm64/Localize.bc",
+    "object" : "/Users/samalburanbaeva/Desktop/Ozin3/build/Pods.build/Release-iphoneos/Localize-Swift.build/Objects-normal/arm64/Localize.o"
+  },
+  "/Users/samalburanbaeva/Desktop/Ozin3/Pods/Localize-Swift/Sources/String+LocalizeBundle.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/Localize-Swift.build/Objects-normal/arm64/String+LocalizeBundle.o",
+    "llvm-bc" : "/Users/samalburanbaeva/Desktop/Ozin3/build/Pods.build/Release-iphoneos/Localize-Swift.build/Objects-normal/arm64/String+LocalizeBundle.bc",
+    "object" : "/Users/samalburanbaeva/Desktop/Ozin3/build/Pods.build/Release-iphoneos/Localize-Swift.build/Objects-normal/arm64/String+LocalizeBundle.o"
+  },
+  "/Users/samalburanbaeva/Desktop/Ozin3/Pods/Localize-Swift/Sources/String+LocalizedBundleTableName.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/Localize-Swift.build/Objects-normal/arm64/String+LocalizedBundleTableName.o",
+    "llvm-bc" : "/Users/samalburanbaeva/Desktop/Ozin3/build/Pods.build/Release-iphoneos/Localize-Swift.build/Objects-normal/arm64/String+LocalizedBundleTableName.bc",
+    "object" : "/Users/samalburanbaeva/Desktop/Ozin3/build/Pods.build/Release-iphoneos/Localize-Swift.build/Objects-normal/arm64/String+LocalizedBundleTableName.o"
+  },
+  "/Users/samalburanbaeva/Desktop/Ozin3/Pods/Localize-Swift/Sources/String+LocalizeTableName.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/Localize-Swift.build/Objects-normal/arm64/String+LocalizeTableName.o",
+    "llvm-bc" : "/Users/samalburanbaeva/Desktop/Ozin3/build/Pods.build/Release-iphoneos/Localize-Swift.build/Objects-normal/arm64/String+LocalizeTableName.bc",
+    "object" : "/Users/samalburanbaeva/Desktop/Ozin3/build/Pods.build/Release-iphoneos/Localize-Swift.build/Objects-normal/arm64/String+LocalizeTableName.o"
+  },
+  "/Users/samalburanbaeva/Desktop/Ozin3/Pods/Localize-Swift/Sources/UI/IBDesignable+Localize.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/Localize-Swift.build/Objects-normal/arm64/IBDesignable+Localize.o",
+    "llvm-bc" : "/Users/samalburanbaeva/Desktop/Ozin3/build/Pods.build/Release-iphoneos/Localize-Swift.build/Objects-normal/arm64/IBDesignable+Localize.bc",
+    "object" : "/Users/samalburanbaeva/Desktop/Ozin3/build/Pods.build/Release-iphoneos/Localize-Swift.build/Objects-normal/arm64/IBDesignable+Localize.o"
+  }
+}

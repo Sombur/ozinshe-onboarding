@@ -1,0 +1,6 @@
+framework module Pods_Ozin3 {
+  umbrella header "Pods-Ozin3-umbrella.h"
+
+  export *
+  module * { export * }
+}

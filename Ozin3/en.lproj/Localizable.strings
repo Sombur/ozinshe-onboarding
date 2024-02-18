@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  Ozin3
+
+  Created by Самал Буранбаева on 25.01.2024.
+  
+*/
+"MY_PROFILE" = "My profile";
+"LANGUAGE" = "Language";
+"PERSONAL_DATA" = "Personal data";
+"CHANGE_PASSWORD" = "Change password";
+"NOTIFICATIONS" = "Nitifications";
+"DARK_MODE" = "Dark mode";
+"CONNECTION_ERROR" = "Connection error";
+"HELLO" = "Hello";
+"SIGN_IN" = "Sign in";
