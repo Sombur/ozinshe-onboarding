@@ -8,7 +8,7 @@
 import SnapKit
 import SDWebImage
 
-class FavoritesCell: UITableViewCell {
+class MovieTableVieCell: UITableViewCell {
     
     let posterImage = {
         let image = UIImageView()
