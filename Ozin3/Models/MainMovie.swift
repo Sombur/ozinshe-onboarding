@@ -25,7 +25,7 @@ class MainMovies {
 
     var bannerMovie: [BannerMovie] = []
     var cellType: CellType = .mainMovie
-    var categoryAges: [categoryAge] = []
+    var categoryAges: [Ages] = []
     var genres: [Genre] = []
 
     init() {

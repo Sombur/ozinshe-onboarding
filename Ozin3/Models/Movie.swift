@@ -28,7 +28,7 @@ class Movie {
     var createdDate = ""
     var lastModifiedDate = ""
     var screenshots:[Screenshot] = []
-    var categoryAges: [categoryAge] = []
+    var categoryAges: [Ages] = []
     var genres: [Genre] = []
     var categories: [Category] = []
     var favorite = false
@@ -111,7 +111,7 @@ class Movie {
                 }
                 if let items = json["categoryAges"].array {
                     for item in items {
-                        let ages = categoryAge(json: item)
+                        let ages = Ages(json: item)
                         
                         categoryAges.append(ages)
                     }

@@ -13,7 +13,7 @@ struct Season {
     var videos: [SeasonVideo] = []
     
     init(json: JSON) {
-        if let temp = json[number].int {
+        if let temp = json["number"].int {
             self.number = temp
         }
         if let videos = json["videos"].array {
@@ -28,7 +28,7 @@ struct SeasonVideo {
     var number: Int = 0
     var link = ""
     init(json: JSON) {
-        if let temp = json[number].int {
+        if let temp = json["number"].int {
             self.number = temp
         }
         if let temp = json["link"].string {

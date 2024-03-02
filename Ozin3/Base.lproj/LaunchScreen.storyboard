@@ -16,9 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Splash Screen" translatesAutoresizingMaskIntoConstraints="NO" id="2tP-lc-kjY">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Splash Screen" translatesAutoresizingMaskIntoConstraints="NO" id="2tP-lc-kjY">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="866"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="co7-I8-SeT">
                                 <rect key="frame" x="139.66666666666666" y="410.66666666666669" width="114" height="31"/>
@@ -31,7 +30,11 @@
                         <viewLayoutGuide key="safeArea" id="TLr-8b-XYx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="2tP-lc-kjY" firstAttribute="leading" secondItem="M15-JP-wCr" secondAttribute="leading" id="7By-u5-ScH"/>
+                            <constraint firstItem="2tP-lc-kjY" firstAttribute="top" secondItem="M15-JP-wCr" secondAttribute="top" id="8Ce-D0-vMp"/>
                             <constraint firstItem="co7-I8-SeT" firstAttribute="centerX" secondItem="M15-JP-wCr" secondAttribute="centerX" id="C2j-56-moc"/>
+                            <constraint firstItem="2tP-lc-kjY" firstAttribute="trailing" secondItem="M15-JP-wCr" secondAttribute="trailing" id="RXl-f3-C8E"/>
+                            <constraint firstAttribute="bottom" secondItem="2tP-lc-kjY" secondAttribute="bottom" id="cbh-g7-qcZ"/>
                             <constraint firstItem="co7-I8-SeT" firstAttribute="centerY" secondItem="M15-JP-wCr" secondAttribute="centerY" id="g29-fC-vsp"/>
                         </constraints>
                     </view>

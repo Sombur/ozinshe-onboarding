@@ -5,8 +5,69 @@
 //  Created by Самал Буранбаева on 17.02.2024.
 //
 
-import UIKit
+import SnapKit
+import SDWebImage
 
 class MainCVC: UICollectionViewCell {
     
+    let posterImage = {
+        let image = UIImageView()
+        image.contentMode = .scaleAspectFill
+        image.layer.cornerRadius = 12
+        image.clipsToBounds = true
+        
+        return image
+    }()
+    
+    let titleLabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "SFProDisplay-Semibold", size: 12)
+        label.textColor = UIColor(named: "TextBlack")
+        
+        return label
+    }()
+    
+    let categoryLabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "SFProDisplay-Medium", size: 12)
+        label.textColor = UIColor(named: "TextGray4")
+        
+        return label
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        contentView.backgroundColor = .clear
+        setupUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    func setupUI() {
+        contentView.addSubview(posterImage)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(categoryLabel)
+        
+        posterImage.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.left.right.equalToSuperview()
+            make.height.equalTo(164)
+        }
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(posterImage.snp.bottom).offset(8)
+            make.left.right.equalToSuperview()
+        }
+        categoryLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(4)
+            make.left.right.equalToSuperview()
+        }
+    }
+    
+    func setData(movies: Movie) {
+        posterImage.sd_setImage(with: URL(string: movies.poster_link))
+        titleLabel.text = movies.name
+        categoryLabel.text = movies.categories.first?.name
+        
+    }
 }

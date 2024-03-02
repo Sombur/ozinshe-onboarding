@@ -13,12 +13,13 @@ import SwiftyJSON
 class PersonalVC: UIViewController {
     
     var userID: Int?
+    var textToPass: String?
     
     let nameLabel = {
         let label = UILabel()
         label.text = "Сіздің атыңыз"
         label.font = UIFont(name: "SFProDisplay-Bold", size: 14)
-        label.textColor = UIColor(named: "TextGray")
+        label.textColor = UIColor(named: "TextGray4")
         
         return label
     }()
@@ -28,7 +29,7 @@ class PersonalVC: UIViewController {
         tf.borderStyle = .none
         tf.textAlignment = .left
         tf.textColor = UIColor(named: "TextBlack")
-        tf.font = UIFont(name: "SFProDisplay-Regular", size: 16)
+        tf.font = UIFont(name: "SFProDisplay-Medium", size: 16)
         return tf
     }()
     
@@ -43,7 +44,7 @@ class PersonalVC: UIViewController {
         let label = UILabel()
         label.text = "Email"
         label.font = UIFont(name: "SFProDisplay-Bold", size: 14)
-        label.textColor = UIColor(named: "TextGray")
+        label.textColor = UIColor(named: "TextGray4")
         
         return label
     }()
@@ -51,12 +52,13 @@ class PersonalVC: UIViewController {
     let emailTextField = {
         let tf = UITextField()
         tf.borderStyle = .none
-        tf.font  = UIFont(name: "SFProDisplay-Regular", size: 16)
+        tf.font  = UIFont(name: "SFProDisplay-Medium", size: 16)
         tf.textColor = UIColor(named: "TextBlack")
         tf.textAlignment = .left
         tf.keyboardType = .emailAddress
         tf.autocapitalizationType = .none
         tf.textContentType = .emailAddress
+        
         
         return tf
     }()
@@ -71,7 +73,7 @@ class PersonalVC: UIViewController {
     let phoneLabel = {
         let label = UILabel()
         label.text = "Телефон"
-        label.textColor = UIColor(named: "TextGray")
+        label.textColor = UIColor(named: "TextGray4")
         label.font = UIFont(name: "SFProDisplay-Bold", size: 14)
         
         return label
@@ -80,7 +82,7 @@ class PersonalVC: UIViewController {
     let phoneTextField = {
         let tf = UITextField()
         tf.borderStyle = .none
-        tf.font = UIFont(name: "SFProDisplay-Regular", size: 16)
+        tf.font = UIFont(name: "SFProDisplay-Medium", size: 16)
         tf.textColor = UIColor(named: "TextBlack")
         tf.textAlignment = .left
         tf.keyboardType = .numbersAndPunctuation
@@ -99,7 +101,7 @@ class PersonalVC: UIViewController {
     let birthdayLabel = {
         let label = UILabel()
         label.text = "Туылған күні"
-        label.textColor = UIColor(named: "TextGray")
+        label.textColor = UIColor(named: "TextGray4")
         label.font = UIFont(name: "SFProDisplay-Bold", size: 14)
         
         return label
@@ -137,7 +139,7 @@ class PersonalVC: UIViewController {
     let birthdayTextField = {
         let tf = UITextField()
         tf.borderStyle = .none
-        tf.font = UIFont(name: "SFProDisplay-Regular", size: 16)
+        tf.font = UIFont(name: "SFProDisplay-Medium", size: 16)
         tf.textColor = UIColor(named: "TextBlack")
         tf.textAlignment = .left
         tf.keyboardType = .numberPad
@@ -168,9 +170,18 @@ class PersonalVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(named: "VCColor")
+        view.backgroundColor = UIColor(named: "BackgraundColor")
+        localizeLanguage()
         setupUI()
         loadUserData()
+        hideKeyboardWhenTappedAround()
+    }
+    func localizeLanguage() {
+        navigationItem.title = "PERSONAL_DATA".localized()
+        nameLabel.text = "YOUR_NAME".localized()
+        phoneLabel.text = "TELEPHONE".localized()
+        birthdayLabel.text = "DATE_OF_BIRTH".localized()
+        saveButton.setTitle("SAVE_CHANGES".localized(), for: .normal)
     }
     
     func setupUI() {
@@ -269,6 +280,14 @@ class PersonalVC: UIViewController {
     }
     @objc func doneButtonAction(){
         birthdayTextField.resignFirstResponder()
+    }
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     func loadUserData() {
         SVProgressHUD.show()

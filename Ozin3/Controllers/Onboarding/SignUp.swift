@@ -26,7 +26,7 @@ class SignUp: UIViewController, UITextFieldDelegate {
     let label2 = {
         let label = UILabel()
         label.text = "Деректерді толтырыңыз".localized()
-        label.font = UIFont(name: "SFProDisplay-Regular", size: 16)
+        label.font = UIFont(name: "SFProDisplay-Medium", size: 16)
         label.textColor = UIColor(named: "TextGray")
         
         return label
@@ -163,17 +163,23 @@ class SignUp: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(named: "VCColor")
+        view.backgroundColor = UIColor(named: "BackgraundColor")
+        localizeLanguage()
         SetupUI()
-        emailTextField.delegate = self
-        passwordTextField1.delegate = self
-        passwordTextField2.delegate = self
+        hideKeyboardWhenTappedAround()
     }
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            textField.resignFirstResponder()
-            return true
+    func localizeLanguage() {
+        label1.text = "SIGN_UP".localized()
+        label2.text = "FILL_IN_DATA".localized()
+        emailTextField.placeholder = "YOUR_EMAIL".localized()
+        label4.text = "PASSWORD".localized()
+        passwordTextField1.placeholder = "YOUR_PASSWORD".localized()
+        label5.text = "REPEAT_PASSWORD".localized()
+        passwordTextField2.placeholder = "YOUR_PASSWORD".localized()
+        signUpButton.setTitle("SIGN_UP".localized(), for: .normal)
         
     }
+    
     func SetupUI() {
         view.addSubview(label1)
         view.addSubview(label2)
@@ -294,17 +300,25 @@ class SignUp: UIViewController, UITextFieldDelegate {
         let signIn = SignIn()
         navigationController?.show(signIn, sender: self)
     }
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
     @objc func autorization() {
         let email = emailTextField.text!
         let password1 = passwordTextField1.text!
         let password2 = passwordTextField2.text!
         
         if email.isEmpty || password1.isEmpty || password2.isEmpty {
-            SVProgressHUD.showError(withStatus: "Все поля дожны быть заполнены!".localized())
+            SVProgressHUD.showError(withStatus: "All_FIELDS_MUST_BE_FILLED_IN".localized())
             return
         }
         if password1 != password2 {
-            SVProgressHUD.showError(withStatus: "Пароли должны совпадать!".localized())
+            SVProgressHUD.showError(withStatus: "PASS_NOT_MATCH".localized())
             return
         }
         
@@ -321,30 +335,30 @@ class SignUp: UIViewController, UITextFieldDelegate {
                 print(resultString)
             }
             
-        if response.response?.statusCode == 200 {
-            let json = JSON(response.data!)
-            print("JSON: \(json)")
-            
-            if let token = json["accessToken"].string {
-                Storage.sharedInstance.accessToken = token
-                UserDefaults.standard.set(token, forKey: "accessToken")
-                self.startApp()
-            } else {
-                SVProgressHUD.showError(withStatus: "CONNECTION_ERROR")
-            }
-        } else {
-            if response.response?.statusCode == 400 {
-                self.label3.text = "Мұндай email-ы бар пайдаланушы тіркелген".localized()
-            } else {
-                var ErrorString = "CONNECTION_ERROR"
-                if let sCode = response.response?.statusCode {
-                    ErrorString = ErrorString + " \(sCode)"
+            if response.response?.statusCode == 200 {
+                let json = JSON(response.data!)
+                print("JSON: \(json)")
+                
+                if let token = json["accessToken"].string {
+                    Storage.sharedInstance.accessToken = token
+                    UserDefaults.standard.set(token, forKey: "accessToken")
+                    self.startApp()
+                } else {
+                    SVProgressHUD.showError(withStatus: "CONNECTION_ERROR".localized())
                 }
-                ErrorString = ErrorString + " \(resultString)"
-                SVProgressHUD.showError(withStatus: "\(ErrorString)")
+            } else {
+                if response.response?.statusCode == 400 {
+                    self.label3.text = "EMAIL_IN_USE".localized()
+                } else {
+                    var ErrorString = "CONNECTION_ERROR"
+                    if let sCode = response.response?.statusCode {
+                        ErrorString = ErrorString + " \(sCode)"
+                    }
+                    ErrorString = ErrorString + " \(resultString)"
+                    SVProgressHUD.showError(withStatus: "\(ErrorString)")
+                }
             }
         }
-    }
         
     }
     

@@ -1,19 +1,18 @@
 {
   "images" : [
     {
-      "filename" : "Profile 1.png",
-      "idiom" : "universal",
-      "scale" : "1x"
+      "filename" : "Profile-2.pdf",
+      "idiom" : "universal"
     },
     {
-      "filename" : "Profile@2x 1.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Profile@3x 1.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "Profile-4.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {
@@ -21,6 +20,7 @@
     "version" : 1
   },
   "properties" : {
+    "preserves-vector-representation" : true,
     "template-rendering-intent" : "original"
   }
 }

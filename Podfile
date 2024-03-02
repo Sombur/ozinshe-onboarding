@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+# platform :ios, '17.2'
 
 target 'Ozin3' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -13,5 +13,7 @@ pod 'SVProgressHUD'
 pod 'SDWebImage'
 pod 'SnapKit'
 pod 'AdvancedPageControl'
+pod 'YouTubePlayer'
+pod 'UIGradient'
 
 end

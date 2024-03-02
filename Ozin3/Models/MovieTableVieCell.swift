@@ -10,6 +10,8 @@ import SDWebImage
 
 class MovieTableVieCell: UITableViewCell {
     
+    
+    
     let posterImage = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
@@ -31,15 +33,15 @@ class MovieTableVieCell: UITableViewCell {
     let yearLabel = {
         let label = UILabel()
         label.text = "2020"
-        label.font = UIFont(name: "SF-Pro-Display-Regular", size: 12)
-        label.textColor = UIColor(named: "TextGray")
+        label.font = UIFont(name: "SFProDisplay-Regular", size: 12)
+        label.textColor = UIColor(named: "TextGray4")
         
         return label
     }()
     
     let playView = {
         let view = UIView()
-        view.backgroundColor = UIColor(named: "LightPurple2")
+        view.backgroundColor = UIColor(named: "ViewPurple 1")
         view.layer.cornerRadius = 8
         
         return view
@@ -71,13 +73,13 @@ class MovieTableVieCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = UIColor(named: "BackgraundColor")
+        
         setupUI()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     func setupUI() {
         contentView.addSubview(posterImage)
         contentView.addSubview(nameLabel)
@@ -104,7 +106,6 @@ class MovieTableVieCell: UITableViewCell {
         playView.snp.makeConstraints { make in
             make.top.equalTo(yearLabel.snp.bottom).offset(24)
             make.left.equalTo(yearLabel)
-            make.width.equalTo(86)
             make.height.equalTo(20)
         }
         playImage.snp.makeConstraints { make in
@@ -128,6 +129,7 @@ class MovieTableVieCell: UITableViewCell {
     func setData(movie: Movie) {
         posterImage.sd_setImage(with: URL(string: movie.poster_link))
         nameLabel.text = movie.name
-        yearLabel.text = "\(movie.year)"
+        yearLabel.text = "\(movie.year) • \(movie.producer) • \(movie.seriesCount) серия"
+        playLabel.text = "PLAY".localized()
     }
 }

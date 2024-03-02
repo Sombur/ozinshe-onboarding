@@ -25,8 +25,8 @@ class ChangePasswordVC: UIViewController {
     let passwordTextField = {
         let tf = TextFieldWithPadding()
         tf.placeholder = "Сіздің құпия сөзіңіз"
-        tf.textColor = UIColor(named: "TextGray")
-        tf.font = UIFont(name: "SFProDisplay-Regular", size: 16)
+        tf.textColor = UIColor(named: "TextGray4")
+        tf.font = UIFont(name: "SFProDisplay-Medium", size: 16)
         tf.layer.cornerRadius = 12
         tf.layer.borderWidth = 1
         tf.layer.borderColor = UIColor(named: "BorderGray")?.cgColor
@@ -66,8 +66,8 @@ class ChangePasswordVC: UIViewController {
     let passwordTextField2 = {
         let tf = TextFieldWithPadding()
         tf.placeholder = "Сіздің құпия сөзіңіз"
-        tf.textColor = UIColor(named: "TextGray")
-        tf.font = UIFont(name: "SFProDisplay-Regular", size: 16)
+        tf.textColor = UIColor(named: "TextGray4")
+        tf.font = UIFont(name: "SFProDisplay-Medium", size: 16)
         tf.layer.cornerRadius = 12
         tf.layer.borderWidth = 1
         tf.layer.borderColor = UIColor(named: "BorderGray")?.cgColor
@@ -109,8 +109,19 @@ class ChangePasswordVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(named: "VCColor")
+        view.backgroundColor = UIColor(named: "BackgraundColor")
+        localizeLanguage()
         SetupUI()
+        hideKeyboardWhenTappedAround()
+    }
+    func localizeLanguage() {
+        navigationItem.title = "CHANGE_PASSWORD".localized()
+        passwordLabel.text = "PASSWORD".localized()
+        passwordTextField.text = "YOUR_PASSWORD".localized()
+        passwordTextField.placeholder = "YOUR_PASSWORD".localized()
+        passwordLabel2.text = "REPEAT_PASSWORD".localized()
+        passwordTextField2.placeholder = "YOUR_PASSWORD".localized()
+        saveButton.setTitle("SAVE_CHANGES".localized(), for: .normal)
     }
     func SetupUI() {
         view.addSubview(passwordLabel)
@@ -186,6 +197,14 @@ class ChangePasswordVC: UIViewController {
             }
         }
     }
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
     func hidePassword(for textField: TextFieldWithPadding ){
         textField.isSecureTextEntry = true
     }
@@ -195,7 +214,7 @@ class ChangePasswordVC: UIViewController {
         
         // Валидация
         if password1 != password2 {
-            SVProgressHUD.showError(withStatus: "Пароли должны совпадать!")
+            SVProgressHUD.showError(withStatus: "PASS_NOT_MATCH".localized())
             return
         }
         

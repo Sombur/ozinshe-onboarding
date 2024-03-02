@@ -9,8 +9,21 @@ import SnapKit
 import Alamofire
 import SVProgressHUD
 import SwiftyJSON
+import Localize_Swift
 
 class SignIn: UIViewController, UITextFieldDelegate {
+    
+    lazy var scrollView = {
+        let sv = UIScrollView()
+        
+        return sv
+    }()
+    
+    lazy var contentView = {
+        let view = UIView()
+        
+        return view
+    }()
     
     let helloLabel = {
         let label = UILabel()
@@ -26,24 +39,24 @@ class SignIn: UIViewController, UITextFieldDelegate {
         let label = UILabel()
         
         label.text = "Аккаунтқа кіріңіз"
-        label.font = UIFont(name: "SFProDisplay-Regular", size: 14)
-        label.textColor = UIColor(named: "TextGray")
+        label.font = UIFont(name: "SFProDisplay-Medium", size: 16)
+        label.textColor = UIColor(named: "TextGray4")
         
         return label
     }()
     
-  let emailLabel = {
+    let emailLabel = {
         let label = UILabel()
         
         label.text = "Email"
-      label.font = UIFont(name: "SFProDisplay-Bold", size: 14)
-      label.textColor = UIColor(named: "TextBlack")
-      
-      return label
+        label.font = UIFont(name: "SFProDisplay-Bold", size: 14)
+        label.textColor = UIColor(named: "TextBlack")
+        
+        return label
     }()
     
     let emailTextField = {
-       let tf = TextFieldWithPadding()
+        let tf = TextFieldWithPadding()
         
         tf.placeholder = "Сіздің email"
         tf.textColor = UIColor(named: "TextBlack")
@@ -64,7 +77,7 @@ class SignIn: UIViewController, UITextFieldDelegate {
         let label = UILabel()
         
         label.text = ""
-        label.font = UIFont(name: "SFProDisplay-Regular", size: 14)
+        label.font = UIFont(name: "SFProDisplay-Medium", size: 14)
         label.textColor = UIColor(named: "TextRed")
         
         return label
@@ -93,7 +106,7 @@ class SignIn: UIViewController, UITextFieldDelegate {
         
         tf.placeholder = "Сіздің құпия сөзіңіз"
         tf.textColor = UIColor(named: "TextBlack")
-        tf.font = UIFont(name: "SFProDisplay-Regular", size: 16)
+        tf.font = UIFont(name: "SFProDisplay-Medium", size: 16)
         tf.layer.cornerRadius = 12
         tf.layer.borderWidth = 1.0
         tf.layer.borderColor = UIColor(named: "BorderGray")?.cgColor
@@ -132,7 +145,7 @@ class SignIn: UIViewController, UITextFieldDelegate {
         
         return label
     }()
-     
+    
     let startButton = {
         let button = UIButton()
         
@@ -142,7 +155,7 @@ class SignIn: UIViewController, UITextFieldDelegate {
         button.layer.cornerRadius = 12
         button.backgroundColor = UIColor(named: "DarkPurple")
         button.addTarget(self, action: #selector(signIn), for: .touchUpInside)
-
+        
         return button
     }()
     
@@ -150,7 +163,7 @@ class SignIn: UIViewController, UITextFieldDelegate {
         let label = UILabel()
         
         label.text = "Аккаунтыныз жоқ па?"
-        label.font = UIFont(name: "SFProDisplay-Regular", size: 14)
+        label.font = UIFont(name: "SFProDisplay-Medium", size: 14)
         label.textColor = UIColor(named: "TextGray")
         label.textAlignment = .right
         
@@ -173,7 +186,7 @@ class SignIn: UIViewController, UITextFieldDelegate {
         
         label.text = "Немесе"
         label.font = UIFont(name: "SFProDisplay-Regular", size: 14)
-        label.textColor = UIColor(named: "TextGray")
+        label.textColor = UIColor(named: "TextGray4")
         label.textAlignment = .center
         
         return label
@@ -190,8 +203,9 @@ class SignIn: UIViewController, UITextFieldDelegate {
         button.layer.cornerRadius = 12
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor(named: "BorderGray")?.cgColor
+        button.layer.backgroundColor = UIColor(named: "AppleColor")?.cgColor
         
-      return  button
+        return  button
     }()
     
     let googleButton = {
@@ -205,42 +219,71 @@ class SignIn: UIViewController, UITextFieldDelegate {
         button.layer.cornerRadius = 12
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor(named: "BorderGray")?.cgColor
+        button.layer.backgroundColor = UIColor(named: "AppleColor")?.cgColor
         
         return button
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(named: "VCColor")
+        view.backgroundColor = UIColor(named: "BackgraundColor")
+        localizeLanguage()
         SetupUI()
-        emailTextField.delegate = self
-        passwordTextField.delegate = self
+        hideKeyboardWhenTappedAround()
     }
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            textField.resignFirstResponder()
-            return true
+    
+    func localizeLanguage() {
+        helloLabel.text = "HELLO".localized()
+        label2.text = "SIGN_IN".localized()
+        emailTextField.placeholder = "YOUR_EMAIL".localized()
+        passwordLabel.text = "PASSWORD".localized()
+        passwordTextField.placeholder = "YOUR_PASSWORD".localized()
+        label3.text = "FORGOT_YOUR_PASSWORD".localized()
+        startButton.setTitle("LOGIN".localized(), for: .normal)
+        label4.text = "NO_ACCOUNT".localized()
+        signUpButton.setTitle("SIGN_UP".localized(), for: .normal)
+        label5.text = "OR".localized()
+        appleButton.setTitle("SIGNUP_APPLE".localized(), for: .normal)
+        googleButton.setTitle("SIGNUP_GOOGLE".localized(), for: .normal)
+        
     }
+    
     func SetupUI() {
-        view.addSubview(helloLabel)
-        view.addSubview(label2)
-        view.addSubview(emailLabel)
-        view.addSubview(emailTextField)
-        view.addSubview(errorLabel)
-        view.addSubview(emailImage)
-        view.addSubview(passwordLabel)
-        view.addSubview(passwordTextField)
-        view.addSubview(passwordImage)
-        view.addSubview(showButton)
-        view.addSubview(label3)
-        view.addSubview(startButton)
-        view.addSubview(label4)
-        view.addSubview(signUpButton)
-        view.addSubview(label5)
-        view.addSubview(appleButton)
-        view.addSubview(googleButton)
+        
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
+        contentView.addSubview(helloLabel)
+        contentView.addSubview(label2)
+        contentView.addSubview(emailLabel)
+        contentView.addSubview(emailTextField)
+        contentView.addSubview(errorLabel)
+        contentView.addSubview(emailImage)
+        contentView.addSubview(passwordLabel)
+        contentView.addSubview(passwordTextField)
+        contentView.addSubview(passwordImage)
+        contentView.addSubview(showButton)
+        contentView.addSubview(label3)
+        contentView.addSubview(startButton)
+        contentView.addSubview(label4)
+        contentView.addSubview(signUpButton)
+        contentView.addSubview(label5)
+        contentView.addSubview(appleButton)
+        contentView.addSubview(googleButton)
+        
+        scrollView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+        }
+        contentView.snp.makeConstraints { make in
+            //make.top.equalTo(view.safeAreaLayoutGuide)
+            make.edges.horizontalEdges.equalTo(scrollView.contentLayoutGuide)
+            make.width.equalTo(scrollView.frameLayoutGuide)
+            make.height.equalTo(scrollView.frameLayoutGuide).priority(.medium)
+        }
         
         helloLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(16)
+            make.top.equalTo(contentView.safeAreaLayoutGuide).inset(16)
             make.left.equalToSuperview().inset(24)
         }
         label2.snp.makeConstraints { make in
@@ -359,6 +402,15 @@ class SignIn: UIViewController, UITextFieldDelegate {
     @objc func openSignUp() {
         let signUp = SignUp()
         navigationController?.show(signUp, sender: self)
+        navigationItem.title = ""
+    }
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     @objc func signIn() {
         let email = emailTextField.text!
@@ -369,7 +421,7 @@ class SignIn: UIViewController, UITextFieldDelegate {
         }
         
         if !isValidEmail(email) {
-            errorLabel.text = "Қате формат"
+            errorLabel.text = "WRONG_FORMAT".localized()
             emailTextField.layer.borderColor = UIColor(named: "TextRed")?.cgColor
             return
         }
@@ -384,8 +436,8 @@ class SignIn: UIViewController, UITextFieldDelegate {
         let parametres = ["email": email, "password": password]
         
         AF.request(Urls.SIGN_IN_URL, method: .post, parameters: parametres, encoding: JSONEncoding.default).responseData { response in
-             
-        SVProgressHUD.dismiss()
+            
+            SVProgressHUD.dismiss()
             var resultString = ""
             if let data = response.data {
                 resultString = String(data: data, encoding: .utf8)!
@@ -400,7 +452,7 @@ class SignIn: UIViewController, UITextFieldDelegate {
                     UserDefaults.standard.setValue(token, forKey: "accessToken")
                     self.startApp()
                 } else {
-                    SVProgressHUD.showError(withStatus: "CONNECTION_ERROR")
+                    SVProgressHUD.showError(withStatus: "CONNECTION_ERROR".localized())
                 }
             } else {
                 var ErrorString = "CONNECTION_ERROR"

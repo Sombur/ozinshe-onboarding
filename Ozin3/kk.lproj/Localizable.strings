@@ -5,12 +5,90 @@
   Created by Самал Буранбаева on 25.01.2024.
   
 */
+"PROFILE" = "Профиль";
+"SEARCH" = "Іздеу";
+"LIST" = "Тізім";
+
 "MY_PROFILE" = "Менің профилім";
-"LANGUAGE" = "Тіл";
-"PERSONAL_DATA" = "Өңдеу";
+"PERSONAL_DATA" = "Жеке деректер";
+"EDIT" = "Өңдеу";
 "CHANGE_PASSWORD" = "Құпия сөзді өзгерту";
+"LANGUAGE" = "Тіл";
 "NOTIFICATIONS" = "Хабарландырулар";
 "DARK_MODE" = "Қараңғы режим";
-"CONNECTION_ERROR" = "Қосылым қатесі";
+
+"YOUR_NAME" = "Сіздің атыңыз";
+"TELEPHONE" = "Телефон";
+"DATE_OF_BIRTH" = "Туылған күні";
+"SAVE_CHANGES" = "Өзгерістерді сақтау";
+
+"PASSWORD" = "Құпия сөз";
+"REPEAT_PASSWORD" = "Құпия сөзді қайталаңыз";
+"PASS_CHANGED" = "Құпия сөз сәтті өзгертілді";
+
+"EXIT" = "Шығу";
+"CONFIRM_EXIT_FROM_ACCOUNT" = "Сіз шынымен аккаунтыныздан";
+"YES_EXIT" = "Иә, шығу";
+"NO" = "Жоқ";
+
+"PLAY" = "Қарау";
+
+"CATEGORIES" = "Санаттар";
+"SEARCH_RESULTS" = "Іздеу нәтижелері";
+
+"CONTINUE_PLAY" = "Қарауды жалғастырыңыз";
+
 "HELLO" = "Сәлем";
 "SIGN_IN" = "Аккаунтқа кіріңіз";
+"YOUR_EMAIL" = "Сіздің email";
+"PASSWORD" = "Құпия сөз";
+"YOUR_PASSWORD" = "Сіздің құпия сөзіңіз";
+"FORGOT_YOUR_PASSWORD" = "Құпия сөзді ұмыттыңыз ба?";
+"LOGIN" = "Кіру";
+"NO_ACCOUNT" = "Аккаунтыныз жоқ па? ";
+"SIGN_UP" = "Тіркелу";
+"OR" = "Немесе";
+"SIGNUP_APPLE" = "Apple ID-мен тіркеліңіз";
+"SIGNUP_GOOGLE" = "Google-мен тіркеліңіз";
+
+"FILL_IN_DATA" = "Деректерді толтырыңыз";
+"All_FIELDS_MUST_BE_FILLED_IN" = "Барлық өрістер толтырылуы керек!";
+"PASS_NOT_MATCH" = "Құпия сөздер бірдей болуы тиіс!";
+"EMAIL_IN_USE" = "Мұндай email-ы бар пайдаланушы тіркелген";
+
+"WRONG_FORMAT" = "Қате формат";
+
+"CONNECTION_ERROR" = "Қосылым қатесі";
+
+"SKIP" = "Өткізу";
+"NEXT" = "Әрі қарай";
+"WELCOME" = "ÖZINŞE-ге қош келдің!";
+
+"CHOOSE_GENRE" = "Жанрды таңдаңыз";
+"AGE_CATEGORY" = "Жасына сәйкес";
+"ALL" = "Барлығы";
+
+"ADD_FAVORITE" = "Тізімге қосу";
+"SHARE" = "Бөлісу";
+"DETAILS" = "Толығырақ";
+"HIDE" = "Жасыру";
+"DIRECTOR" = "Режиссер:";
+"PRODUCER" = "Продюсер:";
+"SECTIONS" = "Бөлімдер";
+"SCREENSHOTS" = "Скриншоттар";
+"SIMILAR_SERIES" = "Ұқсас телехикаялар";
+
+"SEASON" = "сезон";
+"SEASON_IN_SERIES" = "сезон";
+"SERIES" = "серия";
+"EPISODE" = "-ші бөлім";
+
+
+"SIGN_IN" = "Аккаунтқа кіріңіз";
+"GOT_ACCOUNT" = "Сізде аккаунт бар ма? ";
+
+"WRONG_EMAIL" = "Email форматы дұрыс емес";
+"WRONG_EMAIL_TEXT" = "Қайта тексеріңіз";
+"CONNECTION_ERROR" = "Қосылым қатесі";
+"OOPS" = "Кешіріңіз";
+"NOT_AVAILABLE" = "Қызмет әзірленуде";

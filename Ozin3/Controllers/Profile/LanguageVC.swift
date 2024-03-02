@@ -9,9 +9,7 @@ import UIKit
 import SnapKit
 import Localize_Swift
 
-protocol LanguageProtocol {
-    func languageDidChange()
-}
+
 
 class LanguageVC: UIViewController, UIGestureRecognizerDelegate {
     
@@ -25,7 +23,7 @@ class LanguageVC: UIViewController, UIGestureRecognizerDelegate {
     
     let backgraund = {
         let view = UIView()
-        view.backgroundColor = UIColor(named: "BackgraundColor")
+        view.backgroundColor = UIColor(named: "ViewColor2")
         view.layer.cornerRadius = 32
         view.clipsToBounds = true
         view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
@@ -53,15 +51,21 @@ class LanguageVC: UIViewController, UIGestureRecognizerDelegate {
     let tableView = {
         let table = UITableView()
         table.register(LanguageCell.self, forCellReuseIdentifier: "Cell")
+        table.backgroundColor = .clear
         
         return table
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         SetupUI()
-        
+        localizeLanguage()
     }
+    func localizeLanguage() {
+        navigationItem.title = "LANGUAGE".localized()
+        label1.text = "LANGUAGE".localized()
+    }
+    
     func SetupUI() {
         blurView.effect = blurEffect
         blurView.frame = view.bounds
@@ -113,7 +117,7 @@ class LanguageVC: UIViewController, UIGestureRecognizerDelegate {
         
     }
     
-    }
+}
 extension LanguageVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return languageArray.count
@@ -121,6 +125,7 @@ extension LanguageVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! LanguageCell 
+        cell.backgroundColor = .clear
         cell.label1.text = languageArray[indexPath.row][0]
         if Localize.currentLanguage() == languageArray[indexPath.row][1] {
             cell.image1.image = UIImage(named: "Check")

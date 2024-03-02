@@ -32,7 +32,7 @@ class MainBannerCVC: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont(name: "SFProDisplay-Regular", size: 12)
         label.textColor = .white
-    
+        
         return label
     }()
     
@@ -46,8 +46,8 @@ class MainBannerCVC: UICollectionViewCell {
     
     let descriptionLabel = {
         let label = UILabel()
-        label.font = UIFont(name: "SFProDisplay-Regular", size: 12)
-        label.textColor = UIColor(named: "TextGray3")
+        label.font = UIFont(name: "SFProDisplay-Medium", size: 12)
+        label.textColor = UIColor(named: "TextGray4")
         
         return label
     }()
@@ -56,53 +56,52 @@ class MainBannerCVC: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        contentView.backgroundColor = .clear
         setupUI()
-        backgroundColor = .yellow
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-   func setupUI() {
-       
-       addSubview(posterImage)
-       addSubview(categoryView)
-       addSubview(categoryLabel)
-       addSubview(titleLabel)
-       addSubview(descriptionLabel)
+    func setupUI() {
+        
+        contentView.addSubview(posterImage)
+        contentView.addSubview(categoryView)
+        contentView.addSubview(categoryLabel)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(descriptionLabel)
         
         posterImage.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.left.equalToSuperview()
             make.right.equalToSuperview()
-            //make.width.equalTo(300)
+            make.width.equalTo(300)
             make.height.equalTo(164)
         }
-       categoryView.snp.makeConstraints { make in
-           make.top.equalTo(posterImage).inset(8)
-           make.left.equalTo(posterImage).inset(8)
-       }
-       categoryLabel.snp.makeConstraints { make in
-           make.top.equalTo(categoryView).inset(4)
-           make.bottom.equalTo(categoryView).inset(4)
-           make.left.equalTo(categoryView).inset(8)
-           make.right.equalTo(categoryView).inset(8)
-       }
-       titleLabel.snp.makeConstraints { make in
-           make.top.equalTo(posterImage.snp.bottom).offset(16)
-           make.left.equalToSuperview()
-           make.right.equalToSuperview()
-       }
-       descriptionLabel.snp.makeConstraints { make in
-           make.top.equalTo(titleLabel.snp.bottom).offset(8)
-           make.left.equalToSuperview()
-           make.right.equalToSuperview()
-       }
+        categoryView.snp.makeConstraints { make in
+            make.top.equalTo(posterImage).inset(8)
+            make.left.equalTo(posterImage).inset(8)
+        }
+        categoryLabel.snp.makeConstraints { make in
+            make.top.equalTo(categoryView).inset(4)
+            make.bottom.equalTo(categoryView).inset(4)
+            make.left.equalTo(categoryView).inset(8)
+            make.right.equalTo(categoryView).inset(8)
+        }
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(posterImage.snp.bottom).offset(16)
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+        }
+        descriptionLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(8)
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+        }
     }
     
     func setData(bannerMovies: BannerMovie) {
-       // let transormer = SDImageResizingTransformer(size: CGSize(width: 300, height: 164), scaleMode: .aspectFill)
         posterImage.sd_setImage(with: URL(string: bannerMovies.link))
         titleLabel.text = bannerMovies.movie.name
         categoryLabel.text = bannerMovies.movie.categories.first?.name

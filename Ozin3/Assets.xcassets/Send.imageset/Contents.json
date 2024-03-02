@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Share-Outline.png",
+      "filename" : "share.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Share-Outline@2x.png",
+      "filename" : "share@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Share-Outline@3x.png",
+      "filename" : "share@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

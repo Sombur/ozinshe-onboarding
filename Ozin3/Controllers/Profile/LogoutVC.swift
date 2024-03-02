@@ -14,7 +14,7 @@ class LogoutVC: UIViewController, UIGestureRecognizerDelegate {
     
     let backgraund = {
         let view = UIView()
-        view.backgroundColor = UIColor(named: "BackgraundColor")
+        view.backgroundColor = UIColor(named: "ViewColor2")
         view.layer.cornerRadius = 32
         
         return view
@@ -40,8 +40,8 @@ class LogoutVC: UIViewController, UIGestureRecognizerDelegate {
     let label2 = {
         let label = UILabel()
         label.text = "Сіз шынымен аккаунтыныздан "
-        label.font = UIFont(name: "SFProDisplay-Regular", size: 16)
-        label.textColor = UIColor(named: "TextGray")
+        label.font = UIFont(name: "SFProDisplay-Medium", size: 16)
+        label.textColor = UIColor(named: "TextGray4")
         
         return label
     }()
@@ -67,11 +67,21 @@ class LogoutVC: UIViewController, UIGestureRecognizerDelegate {
         
         return button
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        localizeLanguage()
         setupUI()
     }
+    
+    func localizeLanguage() {
+        
+        label1.text = "EXIT".localized()
+        label2.text = "CONFIRM_EXIT_FROM_ACCOUNT".localized()
+        yesButton.setTitle("YES_EXIT".localized(), for: .normal)
+        noButton.setTitle("NO".localized(), for: .normal)
+    }
+    
     func setupUI() {
         
         blurView.effect = blurEffect
@@ -122,33 +132,31 @@ class LogoutVC: UIViewController, UIGestureRecognizerDelegate {
         tap.delegate = self
         view.addGestureRecognizer(tap)
     }
-        func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-            if (touch.view?.isDescendant(of: backgraund))! {
-                return false
-            }
-            return true
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if (touch.view?.isDescendant(of: backgraund))! {
+            return false
         }
-        
-        @objc func dismissView() {
-            self.dismiss(animated: true, completion: nil)
-        }
-
-        @IBAction func logout(_ sender: Any) {
-            UserDefaults.standard.removeObject(forKey: "accessToken")
-
-           let rootVC = SignIn()
-
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            
-            appDelegate.window?.rootViewController = rootVC
-            appDelegate.window?.makeKeyAndVisible()
-        }
-        
-        @IBAction func cancel(_ sender: Any) {
-            dismissView()
-        }
+        return true
     }
-
     
+    @objc func dismissView() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func logout(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: "accessToken")
+        
+        let rootVC = UINavigationController(rootViewController: OnboardingVC())
+        
+        view.window?.rootViewController = rootVC
+        view.window?.makeKeyAndVisible()
+    }
+    
+    @IBAction func cancel(_ sender: Any) {
+        dismissView()
+    }
+}
+
+
 
 
