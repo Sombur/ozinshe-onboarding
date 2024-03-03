@@ -88,8 +88,6 @@
 "SIGN_IN" = "Вход";
 
 "GOT_ACCOUNT" = "У вас есть аккаунт? ";
-
-
 "WRONG_EMAIL" = "Некорректный формат email";
 "WRONG_EMAIL_TEXT" = "Пожалуйста, проверьте еще раз";
 "CONNECTION_ERROR" = "Ошибка соединения";

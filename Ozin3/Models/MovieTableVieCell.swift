@@ -25,7 +25,7 @@ class MovieTableVieCell: UITableViewCell {
         let label = UILabel()
         label.text = "Қызғалдақтар мекені"
         label.font = UIFont(name: "SFProDisplay-Bold", size: 14)
-        label.textColor = UIColor(named: "TextBlack")
+        label.textColor = UIColor(named: "111827-FFFFFF")
         
         return label
     }()
@@ -33,15 +33,15 @@ class MovieTableVieCell: UITableViewCell {
     let yearLabel = {
         let label = UILabel()
         label.text = "2020"
-        label.font = UIFont(name: "SFProDisplay-Regular", size: 12)
-        label.textColor = UIColor(named: "TextGray4")
+        label.font = UIFont(name: "SFProDisplay-Medium", size: 12)
+        label.textColor = UIColor(named: "9CA3AF")
         
         return label
     }()
     
     let playView = {
         let view = UIView()
-        view.backgroundColor = UIColor(named: "ViewPurple 1")
+        view.backgroundColor = UIColor(named: "F8EEFF-1C2431")
         view.layer.cornerRadius = 8
         
         return view
@@ -58,21 +58,21 @@ class MovieTableVieCell: UITableViewCell {
         let label = UILabel()
         label.text = "Қарау"
         label.font = UIFont(name: "SFProDisplay-Bold", size: 12)
-        label.textColor = UIColor(named: "LightPurple")
+        label.textColor = UIColor(named: "9753FO")
         
         return label
     }()
     
     let lineView = {
         let view = UIView()
-        view.backgroundColor = UIColor(named: "LineView")
+        view.backgroundColor = UIColor(named: "D1D5DB-1C2431")
         
         return view
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = UIColor(named: "BackgraundColor")
+        contentView.backgroundColor = UIColor(named: "FFFFFF-111827")
         
         setupUI()
     }

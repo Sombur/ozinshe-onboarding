@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         //(UIApplication.shared.delegate as? AppDelegate)?.self.window = window
     
-        let navController = UINavigationController(rootViewController: OnboardingVC())
+        let navController = UINavigationController(rootViewController: OnboardingViewController())
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 Storage.sharedInstance.accessToken = accessToken
                 
                 self.window = UIWindow(windowScene: windowScene)
-                let viewController = TabBar()
+                let viewController = TabBarViewController()
                 self.window?.rootViewController = viewController
                 self.window?.makeKeyAndVisible()
                 
